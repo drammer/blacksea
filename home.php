@@ -7,7 +7,7 @@
                 <div class="live-chat"><span>ВОПРОС В ЭФИР</span></div>
             </div>
         </div>
-    </article>test2
+    </article>test1
 
     <div class="middle-block-content">
         <div class="content-front-left">
