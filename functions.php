@@ -783,8 +783,6 @@ add_action( 'wp_ajax_nopriv_test', 'my_ajax_guest');
 add_action( 'wp_ajax_test', 'my_ajax_guest');
 
 function my_ajax_guest() {
-
-
     print_r( $_POST );
 
     wp_die();

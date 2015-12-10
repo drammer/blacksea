@@ -1465,5 +1465,59 @@ span.data-blog-item {
     left: 70px;
 }
 aside.sidebar.front-sidebar {
-    margin-top: 9px;
+    margin-top: -15px;
+}
+.live-tv-big, .live-tv-box.col-xs-12.widget {
+    padding: 0;
+}
+
+/* FOR TIMER*/
+.title-timer {
+    font-family: "MyriadProRegular";
+    font-size: 15px;
+    font-weight: 600;
+    background: rgba(255,255,255, 0.7);
+    box-shadow: 12px 11px 21px 22px rgba(255,255,255, 0.7);
+}
+.clock-timer > span {
+    /* Text style for "410 : 12  :  5" */
+    font-family: "MyriadProRegular";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    position: relative;
+}
+.clock-timer > span span {
+    color: #91267b;
+    font-family: "MyriadProRegular";
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 30px;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.timer-ocupation-top {
+    width: 173px;
+    height: 110px;
+    background: url("images/timer-img.png") no-repeat;
+}
+span.day-timer span {
+    margin: 0 0 0 -7px;
+}
+span.hour-timer span {
+    margin: 0 0 0px -5px;
+}
+span.minute-timer span {
+    margin: 0 0 0 -2px;
+}
+.timer-ocupation-top {
+    width: 173px;
+    height: 110px;
+    background: url("images/timer-img.png") no-repeat;
+    padding: 15px 0 0 40px;
+    position: relative;
+    left: -30px;
 }

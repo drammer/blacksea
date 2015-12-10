@@ -1,12 +1,13 @@
 <?php get_header(); ?>
-<article class="col-xs-12 live-tv-big">
-    <div class="live-tv-box col-xs-12 widget">           <span class="tv-title title-cat-header"><i class="fa fa-circle"></i>Online TV</span>            <div class="box-live-video box-content">
-            <div id="player"><span class="play-box"><img src="http://blacksea.tv/wp-content/themes/blacksea/images/play-circle-48.png"></span></div>
-            <div class="live-chat"><span>ВОПРОС В ЭФИР</span></div>
-        </div>
-    </div>
-</article>
 <article class="content-wrapper home col-xs-8">
+
+    <article class="col-xs-12 live-tv-big">
+        <div class="live-tv-box col-xs-12 widget">           <span class="tv-title title-cat-header"><i class="fa fa-circle"></i>Online TV</span>            <div class="box-live-video box-content">
+                <div id="player"><span class="play-box"><img src="http://blacksea.tv/wp-content/themes/blacksea/images/play-circle-48.png"></span></div>
+                <div class="live-chat"><span>ВОПРОС В ЭФИР</span></div>
+            </div>
+        </div>
+    </article>test
 
     <div class="middle-block-content">
         <div class="content-front-left">

@@ -58,7 +58,7 @@
                         reklama
                     </div>
                     <div class="reklama-widget-top col-xs-2">
-                        Крым окупирован timer
+                        <?php include('scriptsphp/timer.php');?>
                     </div>
                 </div>
 
