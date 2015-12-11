@@ -8,7 +8,7 @@
             </div>
         </div>
     </article>
-    test33 hello
+    test33
 
     <div class="middle-block-content">
         <div class="content-front-left">
