@@ -32,10 +32,17 @@
                                 <?php $id = $day_news->ID; ?>
                             <a href="<?php echo get_permalink($id); ?>">
                                 <div class="col-xs-12 day-article">
-                                    <span class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
-                                    <div class="title-day-article"><?php echo $day_news->post_title;?></div>
-                                    <p><?php echo wp_trim_words($day_news->post_content,  10); ?></p>
-                                <hr>
+                                    <div
+                                        class="img-left-cat"><?php echo get_the_post_thumbnail($id, 'thumbnail', 'class=img-rounded'); ?></div>
+                                    <div class="text-right-cat">
+                                        <span
+                                            class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
+
+                                        <div class="title-day-article"><?php echo $day_news->post_title; ?></div>
+                                        <p><?php echo wp_trim_words($day_news->post_content, 10); ?></p>
+                                        <hr>
+                                    </div>
+
                                 </div>
                             </a>
                         <?php endforeach; ?>
@@ -46,133 +53,47 @@
                     </div>
                 </div>
             </div>
-            <div class="category-news col-xs-6">
-                <?php
-                $news_posts = new WP_Query;
-                $day_news = $news_posts->query( array(
-                    'cat'                   => 5,
-                    'post_per_page'         => 3,
-                ) );
-                if(!empty($day_news)):
-                ?>
-                <span class="cat-news cat-box-1 title-cat-header"><?php echo get_cat_name(5); ?></span>
-                <div class="cat-new-front box-content">
-                    <?php
-                        foreach( $day_news as $day_news ):
-                        $day_date_news = date('d.m.Y',strtotime($day_news->post_date) ); ?>
-                        <?php $id = $day_news->ID; ?>
-                        <a href="<?php echo get_permalink($id); ?>">
-                            <div class="col-xs-12 day-article">
-                                <div class="img-left-cat"><?php echo get_the_post_thumbnail($id,'thumbnail', 'class=img-rounded'); ?></div>
-                                    <div class="text-right-cat">
-                                        <span class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
-                                        <div class="title-day-article"><?php echo $day_news->post_title;?></div>
-                                        <p><?php echo wp_trim_words($day_news->post_content,  10); ?></p>
-                                        <hr>
-                                    </div>
+            <span class="day-news blog-text-front title-cat-header">Блоги</span>
+            <?php
+            echo '<div class="widget-front box-content blog-widget-front">';
 
-                            </div>
-                        </a>
-                   <?php endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
-                </div>
-                <?php endif; ?>
+            $blog_posts = new WP_Query;
 
-                <!-- CATEGORY -->
-                <?php
-                $news_posts = new WP_Query;
-                $day_news = $news_posts->query( array(
-                    'cat'                   => 6,
-                    'post_per_page'         => 2,
-                ) );
-                if(!empty($day_news)):
-                ?>
-            <span class="cat-news cat-box-2 title-cat-header"><?php echo get_cat_name(6); ?></span>
-            <div class="cat-new-front box-content">
-                <?php
-                foreach( $day_news as $day_news ):
-                $day_date_news = date('d.m.Y',strtotime($day_news->post_date) ); ?>
-                <?php $id = $day_news->ID; ?>
+            $blog_post = $blog_posts->query(
+                array(
+                    'cat' => '21',
+                    'post_per_page' => '4',
+                    'showposts' => '4',
+                    'orderby' => 'post_date',
+                )
+            );
+
+            foreach ($blog_post as $post) {
+                $id = $post->ID; ?>
                 <a href="<?php echo get_permalink($id); ?>">
-                    <div class="col-xs-12 day-article">
-                        <div class="img-left-cat"><?php echo get_the_post_thumbnail($id,'thumbnail', 'class=img-rounded'); ?></div>
-                        <div class="text-right-cat">
-                            <span class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
-                            <div class="title-day-article"><?php echo $day_news->post_title;?></div>
-                            <p><?php echo wp_trim_words($day_news->post_content,  10); ?></p>
+                    <div class="col-xs-12 blog-widget-article">
+                        <div
+                            class="img-left-cat"><?php echo get_the_post_thumbnail($id, 'thumbnail', 'class=img-thumbnail'); ?></div>
+                        <div class="text-right-blog-widget">
+                            <div class="autor-blog-type"><?php echo get_post_meta($id, 'typ_autor', true); ?></div>
+                            <div
+                                class="title-blog-widget-article"><?php echo get_post_meta($id, 'autor_staty', true);//echo $post->post_title;
+                                ?></div>
+                            <p class="blog-widget-prev"><?php echo wp_trim_words($post->post_content, 13); ?></p>
                             <hr>
-                        </div>
-
                     </div>
-                </a>
-            <?php endforeach; ?>
-            <?php wp_reset_postdata(); ?>
-            </div>
-        <?php endif; ?>
 
-<!-- CATEGORY -->
-                <?php
-                $news_posts = new WP_Query;
-                $day_news = $news_posts->query( array(
-                    'cat'                   => 7,
-                    'post_per_page'         => 2,
-                ) );
-                if( !empty($day_news)):
-                ?>
-                <span class="cat-news cat-box-3 title-cat-header"><?php echo get_cat_name(7); ?></span>
-                <div class="cat-new-front box-content">
-                    <?php
-                        foreach( $day_news as $day_news ):
-                        $day_date_news = date('d.m.Y',strtotime($day_news->post_date) ); ?>
-                        <?php $id = $day_news->ID; ?>
-                        <a href="<?php echo get_permalink($id); ?>">
-                            <div class="col-xs-12 day-article">
-                                <div class="img-left-cat"><?php echo get_the_post_thumbnail($id,'thumbnail', 'class=img-rounded'); ?></div>
-                                <div class="text-right-cat">
-                                    <span class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
-                                    <div class="title-day-article"><?php echo $day_news->post_title;?></div>
-                                    <p><?php echo wp_trim_words($day_news->post_content,  10); ?></p>
-                                    <hr>
-                                </div>
-
-                            </div>
-                        </a>
-                    <?php endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
                 </div>
-                <?php endif;?>
+                </a> <?php
+            } ?>
+            <div class="more-news-day">
+                <a href="http://blacksea.tv/blogs/" class="more-news-link">Больше авторов</a>
+            </div>
+            <?php
 
-                <!-- CATEGORY -->
-                <?php
-                $news_posts = new WP_Query;
-                $day_news = $news_posts->query( array(
-                    'cat'                   => 8,
-                    'post_per_page'         => 2,
-                ) );
-                if( !empty($day_news)):
-                    ?>
-                    <span class="cat-news cat-box-4 title-cat-header"><?php echo get_cat_name(8); ?></span>
-                    <div class="cat-new-front box-content">
-                        <?php
-                        foreach( $day_news as $day_news ):
-                            $day_date_news = date('d.m.Y',strtotime($day_news->post_date) ); ?>
-                            <?php $id = $day_news->ID; ?>
-                            <a href="<?php echo get_permalink($id); ?>">
-                                <div class="col-xs-12 day-article">
-                                    <div class="img-left-cat"><?php echo get_the_post_thumbnail($id,'thumbnail', 'class=img-rounded'); ?></div>
-                                    <div class="text-right-cat">
-                                        <span class="time-day-news"><?php echo date_news($day_news->post_date, 'number_mon'); ?></span>
-                                        <div class="title-day-article"><?php echo $day_news->post_title;?></div>
-                                        <p><?php echo wp_trim_words($day_news->post_content,  10); ?></p>
-                                        <hr>
-                                    </div>
+            wp_reset_postdata();
 
-                                </div>
-                            </a>
-                        <?php endforeach; ?>
-                        <?php wp_reset_postdata(); ?>
-                    </div>
-                <?php endif; ?>
+            ?>
 
         </div>
 
