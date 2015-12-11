@@ -8,6 +8,7 @@
             </div>
         </div>
     </article>
+    ggggg
 
     <div class="middle-block-content">
         <div class="content-front-left">
