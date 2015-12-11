@@ -4,6 +4,11 @@
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $robots = get_post_meta(get_the_ID(), 'robots', 1);
+    if ($robots == 'closed'): ?>
+        <meta name="robots" content="noindex">
+    <?php endif; ?>
+
     <title><?php wp_title('<<', true, 'right'); ?><?php bloginfo('name');?></title>
 
     <link rel="pingback" href="<?php bloginfo('pingback_url');?>" />

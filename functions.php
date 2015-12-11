@@ -588,7 +588,6 @@ if(class_exists( 'WP_Customize_Panel' )):
     }
     add_action('customize_register', 'blacksea_register_theme_customizer');
 
-
 endif;
 
 function remove_img_attribute( $html ) {
