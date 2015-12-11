@@ -8,8 +8,6 @@
             </div>
         </div>
     </article>
-    test33 hhhh
-
     <div class="middle-block-content">
         <div class="content-front-left">
             <div class="col-xs-6">
