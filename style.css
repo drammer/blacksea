@@ -395,7 +395,7 @@ section.content-area-all.container {
 }
 .text-right-cat {
     float: right;
-    max-width: 225px;
+    max-width: 245px;
 }
 .text-right-cat > hr {
     float: right;
@@ -422,8 +422,8 @@ section.content-area-all.container {
     vertical-align: middle;
 }
 .wrapp-news-top-front .day-article {
-    padding: 0 15px 0 15px;
     margin: 0 0 15px;
+    padding: 0 30px 0 10px;
 }
 /* END CATEGORY NEWS BLOCK*/
 
