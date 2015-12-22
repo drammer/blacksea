@@ -17,6 +17,8 @@ function blacksea_enqueue_scripts(){
     wp_enqueue_script('jwplayer');
     wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js');
     wp_enqueue_script('jquery');
+    wp_register_script('bootstrap-js', get_stylesheet_directory_uri() . '/dist/js/bootstrap.js');
+    wp_enqueue_script('bootstrap-js');
     wp_register_script('action', get_stylesheet_directory_uri().'/js/action.js', array( 'jquery' ), '1.0', true );
     wp_enqueue_script('action');
 }

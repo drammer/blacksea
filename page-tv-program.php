@@ -26,20 +26,87 @@ get_header(); ?>
     <div id="content" class="site-content" role="main">
         <section class="news-content category-content all-project-body">
             <div class="entry-content video-project-content">
-                <?php
-                $terms = get_terms("programms");
-                $count = count($terms);
-                if ($count > 0) {
-                    echo "<ul>";
-                    foreach ($terms as $term) {
-                        echo "<li>" . $term->name . "</li>";
 
-                    }
-                    echo "</ul>";
-                } ?>
+                <div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist" id="myTabs">
+                        <?php
+                        //We obtain positions for a certain period of time
 
+                        $tDayData = strtotime(date("Y-m-d"));
+
+                        $monday = strtotime("Monday");
+                        $mondayLast = strtotime("last Monday");
+                        $next_monday = strtotime("next Sunday");
+
+                        $tydayText = mb_strtolower(date('l'));
+
+                        $dayEng = array('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
+                        //                   $day = array('monday' => 'Понедельник', 'tuesday' => 'Вторник', 'wednesday' => 'Среда','thursday' => 'Четверг','friday' => 'Пятница', 'saturday' => 'Суббота', 'sunday' => 'Воскресенье');
+                        $day = array('monday' => 'Пн', 'tuesday' => 'Вт', 'wednesday' => 'Ср', 'thursday' => 'Чт', 'friday' => 'Пт', 'saturday' => 'Сб', 'sunday' => 'Вс');
+
+                        $myterms = get_terms('programms');
+
+                        $post_type = 'programm';
+                        $tax = 'programms';
+                        $terms = array($terms_id->slug);
+                        $psts = query_posts(array(
+                            'post_type' => $post_type,
+                            'post_status' => array('publish', 'future'),
+                            'tax_query' => array(
+                                'relation' => 'AND',
+                                array(
+                                    'taxonomy' => $tax,
+                                    'terms' => $dayEng,
+                                    'field' => 'slug',
+                                    'operator' => 'IN',
+                                ),
+                            ),
+                            'date_query' => array(
+                                'relation' => 'AND',
+                                array(
+                                    'after' => array(
+                                        'year' => date('Y', $mondayLast),
+                                        'month' => date('m', $mondayLast),
+                                        'day' => date('j', $mondayLast),
+                                    ),
+                                    'before' => array(
+                                        'year' => date('Y', $next_monday),
+                                        'month' => date('m', $next_monday),
+                                        'day' => date('j', $next_monday),
+                                    ),
+                                    'inclusive' => true,
+                                ),
+                            ),
+                        ));
+
+                        $timeLink = array();
+                        $dayLink = array();
+                        for ($i = 0; $i < count($day); $i++) { ?>
+                            <li role="presentation" class="<?php echo ($tydayText == $dayEng[$i]) ? 'active' : ''; ?>">
+                                <a href="#<?php echo $dayEng[$i]; ?>" aria-controls="<?php echo $dayEng[$i]; ?>"
+                                   role="tab" data-toggle="tab"><?php echo $day[$dayEng[$i]]; ?></a></li>
+                        <?php } ?>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content"><?php if (!empty($psts)): foreach ($psts as $anonce): ?>
+                            <?php $cats = wp_get_post_terms($anonce->ID, 'programms'); ?>
+                            <div role="tabpanel"
+                                 class="tab-pane fade <?php echo ($tydayText == $cats[0]->slug) ? 'in active' : ''; ?> "
+                                 id="<?php echo $cats[0]->slug; ?>">
+                                <?php
+                                var_dump($anonce);
+                                echo $anonce->post_date; ?>
+                                <?php $field = get_post_meta($anonce->ID);
+                                print_r($field); //var_dump($psts); ?>
+                            </div>
+                        <?php endforeach; endif; ?>
+                    </div>
+
+                </div>
 
             </div>
+
         </section>
 
     </div>

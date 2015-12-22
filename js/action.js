@@ -1,4 +1,14 @@
-function playActive(){
+(function($) {
+
+$(document).ready(function(){
+
+    $('#myTabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+
+//    FOR LIVE VIDEO
+
     jQuery('.play-box img').click(function() {
         jwplayer('player').setup({
             'id': 'player',
@@ -21,7 +31,10 @@ function playActive(){
                 }
             ]
         })
-    })
-}
 
-playActive();
+
+
+
+});
+
+})(jQuery);

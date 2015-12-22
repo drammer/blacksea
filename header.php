@@ -13,9 +13,6 @@
 
     <link rel="pingback" href="<?php bloginfo('pingback_url');?>" />
     <?php wp_head();?>
-    <script type="text/javascript">
-        playActive();
-    </script>
 </head>
 <body <?php body_class(); ?>>
 <div class="right-fix-socials-icon">
