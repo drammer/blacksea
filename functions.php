@@ -595,6 +595,47 @@ if(class_exists( 'WP_Customize_Panel' )):
             'priority' => 1,
         ));
 
+// FOR MOBILE THEME CUSTOM
+
+        $wp_customize->add_panel('panel_general_mobile', array(
+            'priority' => 40,
+            'capability' => 'edit_theme_options',
+            'theme_support' => '',
+            'title' => __('Настройки мобильной версии', 'blacksea'),
+        ));
+
+        $wp_customize->add_section('blacksea_mobile_custom', array(
+            'title' => __('Настройки верхней части', 'blacksea'),
+            'priority' => 1,
+            'panel' => 'panel_general_mobile',
+        ));
+
+
+        /* LOGO	*/
+        $wp_customize->add_setting('blacksea_mobile_logo', array('sanitize_callback' => 'esc_url_raw'));
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'themeslug_logo', array(
+            'label' => __('Logo', 'blacksea'),
+            'section' => 'blacksea_mobile_custom',
+            'settings' => 'blacksea_mobile_logo',
+            'priority' => 1,
+        )));
+        /* SOCIALS ICONS */
+        $wp_customize->add_setting('blacksea_mobile_facebook', array('sanitilize_callback' => 'esc_url_raw'));
+        $wp_customize->add_control('blacksea_mobile_facebook', array(
+            'label' => __('Линк для facebook', 'blacksea'),
+            'section' => 'blacksea_mobile_custom',
+            'settings' => 'blacksea_mobile_facebook',
+            'priority' => 2,
+        ));
+
+        $wp_customize->add_setting('blacksea_mobile_twitter', array('sanitilize_callback' => 'esc_url_raw'));
+        $wp_customize->add_control('blacksea_mobile_twitter', array(
+            'label' => __('Линк для twitter', 'blacksea'),
+            'section' => 'blacksea_mobile_custom',
+            'settings' => 'blacksea_mobile_twitter',
+            'priority' => 3,
+        ));
+
 
 
 

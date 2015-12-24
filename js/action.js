@@ -29,7 +29,8 @@
                         type: 'html5',
                         config: {
                             'file': 'http://blackseatv.cdnvideo.ru/blackseatv/blackseatv.sdp/playlist.m3u8',
-                            'provider': 'video'
+                            'provider': 'video',
+                            'autostart': 'true',
                         }
                     }
                 ]
@@ -45,6 +46,22 @@
         $('body').on('hidden.bs.modal', '.modal', function () {
             $("#modal-video").empty();
         });
+        //FOR LIVE VIDEO
+        jQuery('.live-button-fixed').toggle(
+            function (z) {
+                jQuery('#player-mobile').html(
+                    '<video width="100%" height="275" poster="/images/players-bg.png" controls="true"><source src="http://blackseatv.cdnvideo.ru/blackseatv/blackseatv.sdp/playlist.m3u8" type="video/mp4"> </video>'
+                );
+                jQuery('.fixed-live-block').addClass('active');
 
-    })
+            }, function (z) {
+
+                jQuery('.fixed-live-block').removeClass('active').setTimeout(function () {
+                    jQuery('#player-mobile').empty();
+                }, 1500);
+
+            });
+
+    });
+
 })(jQuery);

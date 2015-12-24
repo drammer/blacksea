@@ -1,4 +1,9 @@
 <?php get_header(); ?>
+
+<?php if (wp_is_mobile()): ?>
+    <?php get_template_part('mobile/mobile', 'home'); ?>
+<?php else: ?>
+
 <article class="content-wrapper home col-xs-8">
 
     <article class="col-xs-12 live-tv-big">
@@ -113,5 +118,7 @@
             <?php if(function_exists('dynamic_sidebar')) dynamic_sidebar('front-page-sidebar'); ?>
         </div>
     </aside>
+    <?php endif; ?>
+
 <?php endif; ?>
 <?php get_footer(); ?>

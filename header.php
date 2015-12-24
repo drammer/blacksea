@@ -1,3 +1,6 @@
+<?php if (wp_is_mobile()): ?>
+    <?php get_template_part('mobile/mobile', 'header'); ?>
+<?php else: ?>
 <!doctupe html>
 <html>
 <head>
@@ -75,3 +78,4 @@
             </div>
         </header>
 <section class="content-area-all container">
+<?php endif; ?>

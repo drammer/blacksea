@@ -1,0 +1,224 @@
+.navbar-brand .logo {
+    width: 50px;
+    height: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    border-radius: 0;
+    background-color: white;
+    box-shadow: 0 0 13px rgba(21, 23, 23, 0.33);
+    border: 0;
+    min-height: inherit;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #91267b;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 0px 10px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-brand .logo {
+    width: 35px;
+    height: auto;
+}
+
+#menu-top-menu.nav-justified {
+    width: 290%;
+    padding: 20px 0;
+}
+
+.fixed-live-block {
+    position: fixed;
+    top: 60px;
+    z-index: 50;
+    right: -175px;
+}
+
+.live-tv-big #player-mobile {
+    background: url("images/players-bg.png") no-repeat bottom;
+    width: 100%;
+    background-size: 100% 100%;
+    height: 275px;
+    position: relative;
+}
+
+.middle-block-content {
+    margin-top: 50px;
+}
+
+img.imedia-object.wp-post-image {
+    width: 64px;
+    height: auto;
+}
+
+.wrapp-news-top-front {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 537px;
+    width: 110%;
+    padding-right: 40px;
+}
+
+.day-article hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-style: dotted none none;
+    border-width: 1px 0 0;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.right-fix-socials-icon li {
+    list-style: none;
+    text-align: center;
+    height: 45px;
+    cursor: pointer;
+    width: 40px;
+    line-height: 50px;
+    position: relative;
+}
+
+.col-xs-12.mobile-front-news {
+    padding: 0;
+}
+
+.day-new-front.box-content {
+    margin: 0;
+    padding: 15px 0;
+    max-height: 627px;
+}
+
+.right-fix-socials-icon {
+    position: fixed;
+    z-index: 25;
+    top: 30%;
+    right: -70px;
+    -webkit-transition: right 0.5s ease-out;
+    -moz-transition: right 0.5s ease-out;
+    -ms-transition: right 0.5s ease-out;
+    -o-transition: right 0.5s ease-out;
+    transition: right 0.5s ease-out;
+}
+
+.navbar-collapse.collapse.in + .right-fix-socials-icon {
+    right: 0;
+}
+
+.live-button-fixed {
+    position: absolute;
+    left: 60px;
+    background: #fff;
+    top: 8px;
+    color: #E77825;
+    border: 1px solid #91267b;
+    padding: 1px 6px;
+    font-size: 30px;
+}
+
+.day-new-front.box-content {
+    margin: 0 0 15px 0;
+    padding: 15px 0;
+    max-height: 627px;
+}
+
+.right-fix-socials-icon li {
+    list-style: none;
+    text-align: center;
+    height: 60px;
+    cursor: pointer;
+    width: 55px;
+    line-height: 65px;
+    position: relative;
+}
+
+.right-fix-socials-icon li a {
+    font-size: 30px;
+    color: #fff;
+    opacity: 0.41;
+    padding: 5px;
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+}
+
+ul.bottom_menu li.menu-item {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+}
+
+ul.bottom_menu li a {
+    color: white;
+    font-family: Calibri;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 16px;
+    font-variant: small-caps;
+}
+
+.left-text-footer p {
+    opacity: 0.28;
+    color: white;
+    font-family: Calibri;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.left-text-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.left-footer-position {
+    padding-bottom: 45px;
+}
+
+.fixed-live-block {
+    position: relative;
+    top: 50px;
+    z-index: 50;
+    right: inherit;
+    margin: 0;
+    clear: both;
+    height: 0;
+    -webkit-transition: height 1s ease-out;
+    -moz-transition: height 1s ease-out;
+    -ms-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
+    transition: height 1s ease-out;
+    overflow: hidden;
+}
+
+.fixed-live-block.active {
+    height: 380px;
+}
+
+video {
+    display: inline-block;
+    vertical-align: baseline;
+    z-index: 100;
+    position: relative;
+}
