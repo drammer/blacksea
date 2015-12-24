@@ -75,7 +75,18 @@ $old_date = $date_news_old - $today_new;
     endif;
 
     if($time_variant == 'big_test_mon' ):
-        return date( 'd', strtotime($date) ) .' '. $mon[date( 'n', strtotime($date) )] .' '. date( 'Y', strtotime($date) );
+        if ($today_new == $date_news_old) :
+            return 'Вчера';
+        else:
+            return date('d', strtotime($date)) . ' ' . $mon[date('n', strtotime($date))] . ' ' . date('Y', strtotime($date));
+        endif;
+    endif;
+    if ($time_variant == 'front_news_date'):
+        if ((strtotime(date('d.m.Y')) - strtotime($date)) < 86400) :
+            return 'Вчера';
+        else:
+            return date('d', strtotime($date)) . ' ' . $mon[date('n', strtotime($date))] . ' ' . date('Y', strtotime($date));
+        endif;
     endif;
 
     if($time_variant == 'time_news' ):
@@ -788,5 +799,40 @@ function my_ajax_guest() {
 
     wp_die();
 }
+
+
+function my_custom_post_face()
+{
+    $labels = array(
+        'name' => _x('Все ведущие', 'post type general name'),
+        'singular_name' => _x('Ведущие', 'post type singular name'),
+        'add_new' => _x('Добавить ведущего', 'anonce_post'),
+        'add_new_item' => __('Добавить нового ведущего'),
+        'edit_item' => __('Редактировать ведущего'),
+        'new_item' => __('Новый ведущий'),
+        'all_items' => __('Все ведущие'),
+        'view_item' => __('Просмотр ведущих'),
+        'search_items' => __('Поиск ведущих'),
+        'not_found' => __('Содержимое не найдено'),
+        'not_found_in_trash' => __('Содержимое не найденно в Корзине'),
+        'parent_item_colon' => '',
+        'menu_name' => 'Ведущие'
+    );
+    $args = array(
+        'labels' => $labels,
+        'description' => 'Holds our face ',
+        'public' => true,
+        'menu_position' => 5,
+        'supports' => array('title', 'thumbnail', 'editor', 'face'),
+        'has_archive' => true,
+    );
+    register_post_type('face', $args);
+}
+
+add_action('init', 'my_custom_post_face');
+
+
+
+
 
 ?>

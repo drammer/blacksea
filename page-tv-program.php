@@ -35,13 +35,28 @@ get_header(); ?>
 
                         $tDayData = strtotime(date("Y-m-d"));
 
-                        $monday = strtotime("Monday");
+                        //setlocale(LC_ALL, 'ru_RU');
                         $mondayLast = strtotime("last Monday");
-                        $next_monday = strtotime("next Sunday");
 
+                        $next_monday = strtotime("next Sunday");
                         $tydayText = mb_strtolower(date('l'));
+                        $valueProgramTime = date("H" . "i");
 
                         $dayEng = array('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday');
+                        $arrMonRus = array(
+                            1 => 'Января',
+                            2 => 'Февраля',
+                            3 => 'Марта',
+                            4 => 'Апреля',
+                            5 => 'Мая',
+                            6 => 'Июня',
+                            7 => 'Июля',
+                            8 => 'Августа',
+                            9 => 'Сентября',
+                            10 => 'Октября',
+                            11 => 'Ноября',
+                            12 => 'Декабря',
+                        );
                         //                   $day = array('monday' => 'Понедельник', 'tuesday' => 'Вторник', 'wednesday' => 'Среда','thursday' => 'Четверг','friday' => 'Пятница', 'saturday' => 'Суббота', 'sunday' => 'Воскресенье');
                         $day = array('monday' => 'Пн', 'tuesday' => 'Вт', 'wednesday' => 'Ср', 'thursday' => 'Чт', 'friday' => 'Пт', 'saturday' => 'Сб', 'sunday' => 'Вс');
 
@@ -82,23 +97,75 @@ get_header(); ?>
 
                         $timeLink = array();
                         $dayLink = array();
-                        for ($i = 0; $i < count($day); $i++) { ?>
+                        for ($i = 0, $d = 0; $i < count($day); $i++, $d++) { ?>
                             <li role="presentation" class="<?php echo ($tydayText == $dayEng[$i]) ? 'active' : ''; ?>">
                                 <a href="#<?php echo $dayEng[$i]; ?>" aria-controls="<?php echo $dayEng[$i]; ?>"
-                                   role="tab" data-toggle="tab"><?php echo $day[$dayEng[$i]]; ?></a></li>
+                                   role="tab" data-toggle="tab"><?php echo $day[$dayEng[$i]]; ?>
+                                    <span><?php $dateWeak = $mondayLast + 86400 * $d;
+                                        echo date('j', $dateWeak) . ' ' . $arrMonRus[date('m', $dateWeak)]; ?></span>
+
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content"><?php if (!empty($psts)): foreach ($psts as $anonce): ?>
                             <?php $cats = wp_get_post_terms($anonce->ID, 'programms'); ?>
                             <div role="tabpanel"
-                                 class="tab-pane fade <?php echo ($tydayText == $cats[0]->slug) ? 'in active' : ''; ?> "
+                                 class="tab-pane <?php echo ($tydayText == $cats[0]->slug) ? 'in active' : ''; ?> "
                                  id="<?php echo $cats[0]->slug; ?>">
-                                <?php
-                                var_dump($anonce);
-                                echo $anonce->post_date; ?>
-                                <?php $field = get_post_meta($anonce->ID);
-                                print_r($field); //var_dump($psts); ?>
+                                <div class="program-variand">
+                                    <ul>
+                                        <li><a href="#">все</a></li>
+                                        <li><a href="#">программы</a></li>
+                                        <li><a href="#">сериалы</a></li>
+                                        <li><a href="#">фильмы</a></li>
+                                        <li><a href="#">мультфильмы</a></li>
+                                    </ul>
+                                </div><?php $field = get_post_meta($anonce->ID);
+                                $arr_anonce = array();
+                                $arr_anonce_empty = array();
+                                for ($i = 0; $i < count($field); $i++) {
+                                    if ($i == 0) $i = '';
+                                    $arr_anonce[] = get_post_meta($anonce->ID, 'anonce' . $i, 1);
+                                }
+                                $arr_anonce = array_diff($arr_anonce, array(''));
+                                foreach ($arr_anonce as $item) {
+                                    $arr_anonce_empty[] = $item;
+                                }
+                                $count = count($arr_anonce_empty);
+                                $count_active = 1;
+                                foreach ($arr_anonce_empty as $key => $item) {
+
+
+                                    foreach ($item as $key_arr => $value) {
+
+                                        $count_tr = $count++;
+                                        $array_key = array();
+
+
+                                        foreach ($value as $key_item => $item_arr) {
+                                            $array_key[] = $key_item;
+                                        }
+
+                                        //var_dump($arr_anonce_empty);
+
+                                        if (isset($item[$key_arr]['id_video'])) {
+                                            $id_video = '<i class="for-modal-video" data-id="' . $item[$key_arr]['id_video'] . '" data-toggle="modal" data-target=".bs-example-modal-lg"></i>';
+                                        }
+                                        ?>
+                                        <div
+                                            class="col-xs-12 item-anonce<?= ($item[$key_arr]['hour_programm'] . $item[$key_arr]['minute_programm'] >= $valueProgramTime) ? ' active-anonce-' . $count_active++ : ''; ?>">
+                                            <span class="time-anonce"><?php echo $item[$key_arr]['hour_programm']; ?>
+                                                .<?php echo $item[$key_arr]['minute_programm']; ?></span><span
+                                                class="item-title-anone"><?php echo $item[$key_arr]['name_programm']; ?></span><span
+                                                class="active-ether-anonce">В ЭФИРЕ</span><span class="ether-anonce"><?php echo $id_video; ?><!--i class="life-open"></i--></span>
+                                        </div>
+                                        <?php
+                                        ;
+                                    }
+                                }
+                                ?>
                             </div>
                         <?php endforeach; endif; ?>
                     </div>
@@ -120,5 +187,15 @@ get_header(); ?>
         </div>
     </aside>
 <?php endif; ?>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+        <div class="modal-content" id="modal-video">
+
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

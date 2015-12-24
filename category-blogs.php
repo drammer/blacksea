@@ -58,6 +58,7 @@ get_header(); ?>
                 ?>
                 <?php if (function_exists('wp_corenavi')) wp_corenavi(); custom_pagination($paged); ?>
 
+                <div class="clearfix"></div>
 
             </div>
         </section>

@@ -30,17 +30,13 @@ get_header(); ?>
 
                 <div class="top-news">
                     <?php
-
                     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
                     $news_posts = new WP_Query;
                     $news = $news_posts->query( array(
                         'cat'  => 2,
                         'showposts' => 31,
                         'post_per_page' => -1,
                         'paged'=>$paged,
-
-
                     ) );
                     $count = 0;
                     $today = date('d.m.Y');

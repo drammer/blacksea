@@ -806,7 +806,7 @@ ul.bottom_menu {
 .category-content {
     background: #fff none repeat scroll 0 0;
     box-shadow: 0 0 6px rgba(21, 23, 23, 0.23);
-    overflow: hidden;
+    /*overflow: hidden;*/
     margin-bottom: 25px;
     margin-top: 5px;
     padding: 15px;
@@ -1536,4 +1536,320 @@ span.minute-timer span {
     padding: 15px 0 0 40px;
     position: relative;
     left: -30px;
+}
+
+/* FOR TAB ANONCE */
+.nav-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+    width: 14.287%;
+    text-align: center;
+    background-color: #eee;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.nav-tabs > li:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    opacity: 0.18;
+    background-color: #898989;
+    top: 0;
+}
+
+.nav-tabs > li:before {
+    content: '';
+    position: absolute;
+    right: 1px;
+    height: 100%;
+    width: 1px;
+    background-color: #fff;
+    top: 0;
+}
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    padding: 5px 0 0px 0;
+    border: 0;
+    border-radius: 0;
+    opacity: 0.59;
+    color: #767676;
+    font-family: Calibri;
+    font-weight: 700;
+    font-size: 35px;
+    background: none;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    color: white;
+    font-family: Calibri;
+    font-weight: 700;
+    font-size: 35px;
+    opacity: 1;
+    background: none;
+    border: 0;
+}
+
+.nav-tabs > li.active {
+    cursor: default;
+    background-color: #e77825;
+    border: none;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs > li:last-child:after,
+.nav-tabs > li:last-child:before,
+.nav-tabs > li.active:after,
+.nav-tabs > li.active:before {
+    display: none;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.program-variand {
+    background-color: #e77825;
+    width: 100%;
+    line-height: 30px;
+    min-height: 30px;
+    margin: -10px 0 15px 0;
+}
+
+.program-variand ul li {
+    font-family: Calibri;
+    font-size: 16px;
+
+    /* Text style for "все" */
+    color: #91267b;
+    font-weight: 700;
+
+    /* Text style for "программы" */
+    color: white;
+    font-weight: 400;
+}
+
+.program-variand ul li {
+    float: left;
+    list-style: outside none none;
+}
+
+.nav-tabs > li:last-child::after {
+    background-color: #eee;
+    content: "";
+    display: block;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 3px;
+}
+
+.nav-tabs > li.active:last-child::after {
+    background-color: #e77825;
+    content: "";
+    display: block;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 3px;
+}
+
+.program-variand a {
+    color: white;
+    font-family: Calibri;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 20px 0 0;
+}
+
+.program-variand a:hover {
+    color: #91267b;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.nav-tabs li span {
+    font-size: 14px;
+    color: #767676;
+    opacity: 0.59;
+    font-weight: 700;
+    font-family: Calibri;
+    text-transform: lowercase;
+    display: block;
+}
+
+.nav-tabs li.active span {
+    font-size: 14px;
+    color: #fff;
+    opacity: 1;
+    font-weight: 700;
+    font-family: Calibri;
+    text-transform: lowercase;
+}
+
+span.time-anonce {
+    color: #aeaeae;
+    font-family: Calibri;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 0 20px 0 0;
+}
+
+span.item-title-anone {
+    color: #b3b3b3;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.item-anonce:hover span.item-title-anone {
+    color: #91267b;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+}
+
+.item-anonce:hover span.item-title-anone:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    opacity: 0.55;
+    border: 1px dashed #91267b;
+    left: 0;
+}
+
+.col-xs-12.item-anonce {
+    padding: 10px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    margin: 0 0 0 15px;
+    width: 95%;
+}
+
+span.ether-anonce {
+    float: right;
+}
+
+.ether-anonce i {
+    background: url('images/slice.png') no-repeat;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.ether-anonce i.life-open {
+    background: url('images/slice.png') no-repeat -40px 0px;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.modal-content {
+    min-height: 300px;
+}
+
+.modal-dialog button.btn.btn-default {
+    border-radius: 0;
+    clear: both;
+    color: #91267b;
+    position: absolute;
+    right: -30px;
+    z-index: 10;
+}
+
+.item-anonce.active-anonce-1 .time-anonce {
+    color: white;
+    font-family: Calibri;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.item-anonce.active-anonce-1 {
+    background-color: #e77825;
+    border-bottom: 1px solid #e77825;
+}
+
+.item-anonce.active-anonce-1 .item-title-anone {
+    color: white;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.item-anonce.active-anonce-1:hover span.item-title-anone {
+    color: white;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.item-anonce.active-anonce-1:hover span.item-title-anone:after {
+    display: none;
+}
+
+.item-anonce.active-anonce-1 {
+    background-color: #e77825;
+    border-bottom: 1px solid #e77825;
+    width: 101%;
+    margin: 0 0 0 -27px;
+    z-index: 16;
+    position: relative;
+    padding: 10px 0 10px 45px;
+}
+
+.item-anonce.active-anonce-1:before {
+    content: '';
+    background: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.item-anonce span.active-ether-anonce {
+    color: white;
+    font-family: Calibri;
+    font-size: 18px;
+    font-weight: 700;
+    float: right;
+    display: none;
+    padding: 0 15px 0 0;
+    position: relative;
+}
+
+.item-anonce span.active-ether-anonce:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #e30613;
+    position: absolute;
+    top: 2px;
+    left: -17px;
+    border-radius: 50%;
+}
+
+.item-anonce.active-anonce-1 span.active-ether-anonce {
+    display: block;
+}
+
+.item-anonce.active-anonce-1 span.ether-anonce {
+    display: none;
+}
+
+.item-anonce.active-anonce-1:before {
+    content: '';
+    background: url('images/71.png') no-repeat;
+    width: 12px;
+    height: 7px;
+    position: absolute;
+    left: 0;
+    top: -7px;
 }

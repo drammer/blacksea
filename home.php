@@ -27,7 +27,10 @@
                         foreach( $day_news as $day_news ):
                             $day_date_news = date('d.m.Y',strtotime($day_news->post_date) ); ?>
                             <?php if($today != $day_date_news): $today = $day_date_news; ?>
-                    <div class="col-xs-12 day-article empty-text-article"><?php echo date_news($day_news->post_date, 'big_test_mon'); ?><hr></div>
+                            <div
+                                class="col-xs-12 day-article empty-text-article"><?php echo date_news($day_news->post_date, 'front_news_date'); ?>
+                                <hr>
+                            </div>
                         <?php endif; ?>
                                 <?php $id = $day_news->ID; ?>
                             <a href="<?php echo get_permalink($id); ?>">
