@@ -20,6 +20,11 @@
  */
 
 get_header(); ?>
+
+<?php if (wp_is_mobile()): ?>
+    <?php get_template_part('single/single', 'cat-2-mobile'); ?>
+<?php else: ?>
+
 <?php $singleID = get_the_ID(); ?>
 
 <div id="primary" class="content-area single-news col-xs-8">
@@ -56,7 +61,9 @@ get_header(); ?>
                     <li><a target="_blank" rel="nofollow" href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(get_the_ID());?>"><span class="wrapp-icon"><i class="fa fa-facebook"></i></span></a></li>
                     <li><a target="_blank" rel="nofollow" href="http://vk.com/share.php?url=<?php echo get_permalink(get_the_ID());?>"><span class="wrapp-icon"><i class="fa fa-vk"></i></span></a></li>
 <!--                    <li><a target="_blank" rel="nofollow" href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=http://sockraina.com/news/--><?//=$News->intID;?><!--" class="icon_social_odnkl"><span class="wrapp-icon"><i class="fa fa-ok"></i></span></a></li>-->
-                    <li><a href="https://plus.google.com/share?url=<?php echo get_permalink(get_the_ID());?>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span class="wrapp-icon"><i class="fa fa-google-plus"></i></span></a></li>
+                    <li><a href="https://plus.google.com/share?url=<?php echo get_permalink(get_the_ID()); ?>"
+                           onclick="window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span
+                                class="wrapp-icon"><i class="fa fa-google-plus"></i></span></a></li>
                     <li><a href="http://twitter.com/share?text=<?php the_title(); ?>&amp;url=<?php echo get_permalink(get_the_ID());?>&amp;via=SocKraina" title="Поделиться ссылкой в Твиттере" onclick="window.open(this.href, this.title, 'toolbar=0, status=0, width=548, height=325'); return false" target="_parent"><span class="wrapp-icon"><i class="fa fa-twitter"></i></span></a></li>
                 </ul>
             </div>
@@ -83,6 +90,7 @@ get_header(); ?>
             <?php if(function_exists('dynamic_sidebar')) dynamic_sidebar('single-news-sidebar'); ?>
         </div>
     </aside>
+<?php endif; ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>

@@ -215,10 +215,84 @@ ul.bottom_menu li a {
 .fixed-live-block.active {
     height: 380px;
 }
-
 video {
     display: inline-block;
     vertical-align: baseline;
     z-index: 100;
     position: relative;
+}
+
+.text-right-blog-widget {
+    float: right;
+    max-width: inherit;
+}
+
+.img-left-cat {
+    margin: 0;
+    max-width: inherit;
+}
+
+.media {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.widget-front.box-content, #polls-3.wp-polls {
+    padding: 15px 15px 15px 10px;
+}
+
+.blog-widget-front .blog-widget-article > div {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+aside.sidebar.front-sidebar {
+    margin-top: -15px;
+    padding: 0;
+}
+
+.anonce-box.col-xs-6 {
+    width: 100%;
+    clear: both;
+    margin: 5px 0;
+}
+
+/* FOR SINGLE MOBILE STYLE*/
+.img-single-news {
+    width: 100%;
+    clear: both;
+    height: 150px;
+    overflow: hidden;
+}
+
+.comment-box textarea#comment {
+    width: 100% !important;
+}
+
+.socsety-menu-single li {
+    border: 1px solid gainsboro;
+    display: inline-block;
+    height: 44px;
+    list-style: outside none none;
+    text-align: center;
+    width: 44px;
+    margin: 10px 5px;
+}
+
+.socsety-menu-single {
+    padding: 0;
+}
+
+.site-content.news-single {
+    background-color: white;
+    box-shadow: 0 0 6px rgba(21, 23, 23, 0.23);
+    margin-bottom: 25px;
+    color: #221e1f;
+    font-family: Calibri;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 25px;
+    margin-top: 40px;
 }

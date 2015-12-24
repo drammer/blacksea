@@ -40,13 +40,11 @@
                                 </div>
                             </div>
                             <hr>
-
-
                         <?php endforeach; ?>
                     </div>
                     <?php wp_reset_postdata(); ?>
                     <div class="more-news-day">
-                        <a href="http://blacksea.tv/news/" class="more-news-link">Больше новостей</a>
+                        <a href="<?php get_option('url'); ?>/news/" class="more-news-link">Больше новостей</a>
                     </div>
                 </div>
             </div>
@@ -84,7 +82,7 @@
                 </a> <?php
             } ?>
             <div class="more-news-day">
-                <a href="http://blacksea.tv/blogs/" class="more-news-link">Больше авторов</a>
+                <a href="<?php get_option('url'); ?>/blogs/" class="more-news-link">Больше авторов</a>
             </div>
             <?php
 
@@ -94,7 +92,7 @@
 
         </div>
 
-        <?php get_template_part('content', 'bottom-widget'); ?>
+        <?php get_template_part('mobile/content', 'bottom-mobile-widget'); ?>
 
     </div>
 
@@ -102,9 +100,9 @@
     </div>
 </article>
 <?php if (!dynamic_sidebar()): ?>
-    <aside class="sidebar front-sidebar col-xs-4">
+    <aside class="sidebar front-sidebar col-xs-12">
         <div class="sidebar-list">
-            <?php if (function_exists('dynamic_sidebar')) dynamic_sidebar('front-page-sidebar'); ?>
+            <?php if (function_exists('dynamic_sidebar')) dynamic_sidebar('front-page-sidebar-mobile'); ?>
         </div>
     </aside>
 <?php endif; ?>

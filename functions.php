@@ -108,6 +108,22 @@ function register_front_sidebar(){
 }
 add_action('widgets_init', 'register_front_sidebar');
 
+function register_front_sidebar_mobile()
+{
+    register_sidebar(array(
+        'name' => sprintf(__('Сайдбар главной страницы для мобильной версии сайта'), $i),
+        'id' => 'front-page-sidebar-mobile',
+        'description' => 'Вывод виджетов на главной странице мобильной версии сайта',
+        'class' => '',
+        'before_widget' => '<div id="%1$s" class="widget %2$s col-xs-12">',
+        'after_widget' => "</div>\n",
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => "</h2>\n",
+    ));
+}
+
+add_action('widgets_init', 'register_front_sidebar_mobile');
+
 function register_blacksea_front_top_widgets(){
     register_sidebar(
         array(
@@ -154,6 +170,22 @@ function register_my_widgets(){
     ) );
 }
 add_action( 'widgets_init', 'register_my_widgets' );
+
+function register_my_widgets_mobile()
+{
+    register_sidebar(array(
+        'name' => sprintf(__('Средний блок для мобильного'), $i),
+        'id' => "bottom-sidebar-mobile",
+        'description' => '',
+        'class' => '',
+        'before_widget' => '<div id="%1$s" class="widget %2$s col-xs-12">',
+        'after_widget' => "</div>\n",
+        'before_title' => '<h2 class="widgettitle">',
+        'after_title' => "</h2>\n",
+    ));
+}
+
+add_action('widgets_init', 'register_my_widgets_mobile');
 
 function register_singe_sidebar(){
     register_sidebar( array(
