@@ -12,7 +12,7 @@
         jQuery('.play-box img').click(function () {
             jwplayer('player').setup({
                 'id': 'player',
-                'width': '378',
+                'width': '100%',
                 'height': '275',
                 'image': 'images/2-layers.png',
                 'provider': 'rtmp',
